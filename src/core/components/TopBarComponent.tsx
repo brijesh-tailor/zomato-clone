@@ -2,26 +2,21 @@ import { log } from "console";
 import React, { useEffect, useState } from "react";
 import LoginComponent from "./LoginComponent";
 import { getCountryList } from "../services/common.service";
+import { Countries } from "../models/common.model";
+import SearchComponent from "./SearchComponent";
 
 const TopBarComponent = () => {
   /** toggle Login modal */
-  const [visible, setLoginModalVisible] = useState(false);
+  const [isLoginVisible, setLoginModalVisible] = useState(false);
+  /** toggle Search modal */
+  const [isSearchVisible, setSearchModalVisible] = useState(false);
 
   const toggleLoginModal = (value: boolean) => {
     setLoginModalVisible(value);
-    // const modal = document.getElementById("myModal") as HTMLElement;
-    // modal.style.display = "block";
   };
-
-  useEffect(() => {
-    // getCountryListData();
-  }, []);
-
-  // const getCountryListData = () => {
-  //   getCountryList().then((response: any) => {
-  //     debugger;
-  //   });
-  // };
+  const toggleSearchModal = (value: boolean) => {
+    setSearchModalVisible(value);
+  };
 
   return (
     <div>
@@ -35,7 +30,6 @@ const TopBarComponent = () => {
             />
           </div>
           <div className="login-section">
-            {/* <a href="#" id="myBtn" className="person-fill"></a> */}
             <button
               id="myBtn"
               type="button"
@@ -56,7 +50,9 @@ const TopBarComponent = () => {
             </button> */}
 
             {/* Modal */}
-            {visible ? <LoginComponent closeLogin={toggleLoginModal} /> : null}
+            {isLoginVisible ? (
+              <LoginComponent closeLogin={toggleLoginModal} />
+            ) : null}
           </div>
         </nav>
         <div className="search-section">
@@ -73,7 +69,7 @@ const TopBarComponent = () => {
             </svg>
             <h4 className="location-text">Valsad</h4>
           </div>
-          <div className="search-bar">
+          <div className="search-bar" onClick={() => toggleSearchModal(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -101,6 +97,10 @@ const TopBarComponent = () => {
           </button>
         </div>
       </header>
+      {/* search Modal */}
+      {isSearchVisible ? (
+        <SearchComponent closeSearch={toggleSearchModal} />
+      ) : null}
     </div>
   );
 };

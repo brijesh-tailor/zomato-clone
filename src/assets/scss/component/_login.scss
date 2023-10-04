@@ -1,0 +1,279 @@
+/******Login Modal Style*********/
+.modal {
+    display: flex; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    // overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(28, 28, 28);
+    opacity: 1;
+    transition: opacity 0.25s ease 0s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% 0px auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+    height: 100%;
+    border-radius: 5px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 28px;
+    // line-height: 4rem;
+    margin: 5px 8px;
+    font-weight: 500;
+    color: rgb(79, 79, 79);
+}
+
+/* The Close Button */
+.close-icon {
+    background-image: url("../../icons/close-icon.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: white;
+    display: block;
+    color: #aaa;
+    width: 24px;
+    height: 24px;
+    font-size: 500px;
+    font-weight: bold;
+    border: none;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.phone-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    // border: 1px solid rgb(207, 207, 207);
+    // border-radius: 6px;
+    margin-top: 100px;
+    .country-dropdown {
+        font-size: 15px;
+        border: none;
+        outline: none;
+        position: absolute;
+        left: 10px;
+        // padding: 1px;
+    }
+    .phone-number {
+        font-size: 15px;
+        border: none;
+        outline: none;
+        padding-left: 100px;
+        width: 100%;
+        height: 48px;
+        border: 2px solid rgb(232, 232, 232);
+        border-radius: 6px;
+        &:focus {
+            border-color: rgb(239, 79, 95);
+        }
+    }
+
+    .country-option {
+        min-width: 300px;
+    }
+}
+
+.otp-button {
+    height: 3rem;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 30px;
+    background: border-box rgb(239, 79, 95);
+    border-color: rgb(239, 79, 95);
+    border-style: solid;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    font-weight: 500;
+}
+/* Search Area */
+.search-section {
+    display: flex;
+    box-shadow: rgba(28, 28, 28, 0.06) 0px 1px 4px;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}
+.search-location {
+    display: flex;
+    align-items: center;
+}
+// location icon
+.bi-geo-alt-fill {
+    color: rgb(239, 79, 95);
+}
+
+.location-text {
+    padding-left: 5px;
+    font-weight: 500;
+}
+
+.search-bar {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid rgb(232, 232, 232);
+    background-color: rgb(248, 248, 248);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+// search icon
+.bi-search {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    width: 17px;
+    height: 17px;
+}
+
+/* Search Area */
+.filter-section {
+    display: flex;
+    padding: 1rem;
+    padding-bottom: 1.6rem;
+    position: sticky;
+    background-color: rgb(255, 255, 255);
+    // z-index: 0;
+    // transition: top 0.5s ease-in-out 0s;
+
+    .filter-button,
+    .rating-button,
+    .pure-veg-button,
+    .cuisines-button {
+        border: 1px solid rgb(207, 207, 207);
+        color: rgb(156, 156, 156);
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgba(54, 54, 54, 0.06) 0px 1px 2px;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 3px;
+        // display: inline-block;
+        align-items: center;
+        font-size: 14px;
+        flex-grow: 1;
+    }
+}
+
+.horizontal-line-text {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 25px 0px;
+    align-items: center;
+    .hr {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-image: initial;
+        border-bottom: 1px solid rgb(232, 232, 232);
+        width: 100%;
+        padding: 0px;
+    }
+    .or {
+        position: absolute;
+        font-size: 20px;
+        color: rgb(105, 105, 105);
+        left: 50%;
+        padding: 5px;
+        background: rgb(255, 255, 255);
+        transform: translateX(-50%);
+    }
+}
+
+.mail-button {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    align-items: center;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 6px;
+    padding-left: 60px;
+    background-color: rgb(255, 255, 255);
+    margin: 35px 0px 30px 0px;
+    .mail-fill {
+        fill: rgb(239, 79, 95);
+        height: 30px;
+        width: 30px;
+    }
+    .mail-text {
+        color: rgb(105, 105, 105);
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 15px;
+    }
+}
+
+.google-button {
+    // background-image: url("../../icons/google.svg");
+    background-repeat: no-repeat;
+    // background-color: white;
+    background-position: 53px;
+    display: flex;
+    width: 100%;
+    height: 48px;
+    align-items: center;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 6px;
+    padding-left: 60px;
+    background-color: rgb(255, 255, 255);
+    .google-text {
+        color: rgb(105, 105, 105);
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 46px;
+    }
+}
+
+.horizontal-line {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 35px 0px 15px 0px;
+    align-items: center;
+    .hr {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-image: initial;
+        border-bottom: 1px solid rgb(232, 232, 232);
+        width: 100%;
+        padding: 0px;
+    }
+}
+.sign-up-text {
+    // font-size: inherit;
+    // margin: 0px 0px 1rem;
+    color: rgb(54, 54, 54);
+    font-size: 18px;
+    // line-height: 0;
+    .create-account-link {
+        padding-left: 5px;
+        color: rgb(239, 79, 95);
+        cursor: pointer;
+    }
+}
