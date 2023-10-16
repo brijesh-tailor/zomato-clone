@@ -10,3 +10,10 @@ export class Countries {
         public flagImgUrl: string
     ) { }
 }
+
+export class SignupForm {
+    constructor(
+        public username: string,
+        public email: string,
+    ) { }
+}
