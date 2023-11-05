@@ -17,3 +17,10 @@ export class SignupForm {
         public email: string,
     ) { }
 }
+
+/***** Email login modal ******/
+export class EmailLogin {
+    constructor(
+        public email: string,
+    ) { }
+}

@@ -4,12 +4,15 @@ import LoginComponent from "./LoginComponent";
 import SearchComponent from "./SearchComponent";
 import { getAccessToken, setAuthData } from "../services/auth.service";
 import SignupComponent from "./SignupComponent";
+import DeliveryLocationComponent from "./DeliveryLocationComponent";
 
 const TopBarComponent = () => {
   /** toggle Login modal */
   const [isLoginVisible, setLoginModalVisible] = useState(false);
   /** toggle Search modal */
   const [isSearchVisible, setSearchModalVisible] = useState(false);
+  /** toggle Delivery location modal */
+  const [isLocationVisible, setLocationModalVisible] = useState(false);
 
   useEffect(() => {
     getAccessTokenData();
@@ -27,6 +30,10 @@ const TopBarComponent = () => {
   };
   const toggleSearchModal = (value: boolean) => {
     setSearchModalVisible(value);
+  };
+
+  const toggleDeliveryLocationModal = (value: boolean) => {
+    setLocationModalVisible(value);
   };
 
   return (
@@ -47,14 +54,13 @@ const TopBarComponent = () => {
               onClick={() => toggleLoginModal(true)}
               className="icon-person-fill"
             />
-            {/* Modal */}
-            {isLoginVisible ? (
-              <LoginComponent closeLogin={toggleLoginModal} />
-            ) : null}
           </div>
         </nav>
         <div className="search-section">
-          <div className="search-location">
+          <div
+            className="search-location"
+            onClick={() => toggleDeliveryLocationModal(true)}
+          >
             <span className="icon-geo-alt-fill"></span>
             <h4 className="location-text">Valsad</h4>
           </div>
@@ -77,11 +83,29 @@ const TopBarComponent = () => {
           </button>
         </div>
       </header>
-      {/* search Modal */}
+
+      {/* Login Modal */}
+      {isLoginVisible ? (
+        <LoginComponent
+          closeLogin={toggleLoginModal}
+          openLoginModal={toggleLoginModal}
+        />
+      ) : null}
+
+      {/* Search Modal */}
       {isSearchVisible ? (
-        <SearchComponent closeSearch={toggleSearchModal} />
-      ) : // <SignupComponent />
-      null}
+        <SearchComponent
+          closeSearch={toggleSearchModal}
+          openLocation={toggleDeliveryLocationModal}
+        />
+      ) : null}
+
+      {/* Delivery location Modal */}
+      {isLocationVisible ? (
+        <DeliveryLocationComponent
+          closeLocation={toggleDeliveryLocationModal}
+        />
+      ) : null}
     </div>
   );
 };

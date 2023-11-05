@@ -15,14 +15,18 @@
 .signup-modal-content {
     background-color: rgb(255, 255, 255);
     margin: 50px 0px 0px 0px; /* 15% from the top and centered */
-    padding: 9px;
+    padding: 20px;
     border: 1px solid #888;
     width: 100%; /* Could be more or less, depending on screen size */
-    height: 100%;
+    // height: 100%;
     border-radius: 5px;
     opacity: 1;
     z-index: 1;
     overflow: hidden;
+    @media (min-width: 481px) {
+        margin: auto;
+        max-width: 432px;
+    }
 }
 
 .signup-modal-header {
@@ -40,11 +44,170 @@
 }
 
 .signup-form {
+    margin-top: 40px;
     input[type="text"],
     input[type="email"] {
+        border-radius: 5px;
+        border: 0.1rem solid rgb(207, 207, 207);
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
         box-sizing: border-box;
+        // &:focus {
+        //     border-color: rgb(239, 79, 95);
+        // }
+        // p {
+        //     color: rgb(239, 79, 95);
+        // }
+    }
+}
+
+.form-control {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &-input {
+        font-size: 18px;
+        height: 50px;
+        cursor: pointer;
+        &:focus {
+            outline-color: rgb(0, 153, 153);
+        }
+    }
+    &-label {
+        position: absolute;
+        top: 22px;
+        left: 20px;
+        font-size: 18px;
+        padding: 0px;
+        color: rgb(181, 181, 181);
+        background: rgb(255, 255, 255);
+        pointer-events: none;
+        &-top {
+            position: absolute;
+            top: 3px;
+            left: 15px;
+            font-size: 11px;
+            padding: 0px 5px;
+            color: rgb(0, 153, 153);
+            background: rgb(255, 255, 255);
+            transition: 0.2s ease 0s;
+            pointer-events: none;
+        }
+    }
+}
+
+// .text-error {
+//     color: rgb(224, 53, 70);
+// }
+
+.consent {
+    display: flex;
+    // align-items: center;
+    margin-top: 15px;
+    width: 100%;
+    .checkbox {
+        height: 20px;
+        width: 20px;
+        margin: 0px 5px 0px 5px;
+    }
+
+    .links {
+        font-size: 13px;
+        color: rgb(105, 105, 105);
+        // width: 100%;
+        a {
+            text-decoration: none;
+            // font-weight: 500;
+            color: rgb(239, 79, 95);
+        }
+    }
+}
+
+.create-account-button {
+    background-color: darkgrey;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+
+.horizontal-line-text {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 25px 0px;
+    align-items: center;
+    .hr {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-image: initial;
+        border-bottom: 1px solid rgb(232, 232, 232);
+        width: 100%;
+        padding: 0px;
+    }
+    .or {
+        position: absolute;
+        font-size: 20px;
+        color: rgb(105, 105, 105);
+        left: 50%;
+        padding: 5px;
+        background: rgb(255, 255, 255);
+        transform: translateX(-50%);
+    }
+}
+
+.google-button {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    align-items: center;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 6px;
+    padding-left: 60px;
+    background-color: rgb(255, 255, 255);
+    .icon-google {
+        font-size: 40px;
+    }
+    .google-text {
+        color: rgb(105, 105, 105);
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+}
+
+.horizontal-line {
+    display: flex;
+    position: relative;
+    width: 100%;
+    margin: 15px 0px 30px 0px;
+    align-items: center;
+    .hr {
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-image: initial;
+        border-bottom: 1px solid rgb(232, 232, 232);
+        width: 100%;
+        padding: 0px;
+    }
+}
+
+.login-text {
+    // font-size: inherit;
+    // margin: 0px 0px 1rem;
+    color: rgb(54, 54, 54);
+    font-size: 18px;
+    // line-height: 0;
+    .login-account-link {
+        padding-left: 5px;
+        color: rgb(239, 79, 95);
+        cursor: pointer;
     }
 }

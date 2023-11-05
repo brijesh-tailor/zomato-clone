@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 type Props = {
   closeSearch: (value: boolean) => void;
+  openLocation: (value: boolean) => void;
 };
 
-const SearchComponent: React.FC<Props> = ({ closeSearch }) => {
+const SearchComponent: React.FC<Props> = ({ closeSearch, openLocation }) => {
   const [placeholder, setPlaceholder] = useState<boolean>(false);
 
   const closeSearchModal = (value: boolean) => {
@@ -24,10 +25,18 @@ const SearchComponent: React.FC<Props> = ({ closeSearch }) => {
     setPlaceholder(value);
   };
 
+  const openLocationModal = (value: boolean) => {
+    closeSearch(false);
+    openLocation(true);
+  };
+
   return (
     <div className="search-modal" onClick={(e) => backdropClick(e)}>
       <div className="search-modal-content">
-        <div className="search-modal-header">
+        <div
+          className="search-modal-header"
+          onClick={() => openLocationModal(true)}
+        >
           <span className="search-header-title">Valsad</span>
           <span className="icon-down-arrow-fill"></span>
           <button
@@ -39,7 +48,6 @@ const SearchComponent: React.FC<Props> = ({ closeSearch }) => {
           <span className="icon-search"></span>
           <input
             type="text"
-            placeholder=""
             className="search-input"
             autoFocus
             onClick={() => onInputClick(false)}
