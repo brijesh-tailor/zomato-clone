@@ -5,6 +5,7 @@ import SearchComponent from "./SearchComponent";
 import { getAccessToken, setAuthData } from "../services/auth.service";
 import SignupComponent from "./SignupComponent";
 import DeliveryLocationComponent from "./DeliveryLocationComponent";
+import FilterComponent from "./FilterComponent";
 
 const TopBarComponent = () => {
   /** toggle Login modal */
@@ -13,6 +14,8 @@ const TopBarComponent = () => {
   const [isSearchVisible, setSearchModalVisible] = useState(false);
   /** toggle Delivery location modal */
   const [isLocationVisible, setLocationModalVisible] = useState(false);
+  /** toggle filter modal */
+  const [isFilterVisible, setFilterModalVisible] = useState(false);
 
   useEffect(() => {
     getAccessTokenData();
@@ -34,6 +37,10 @@ const TopBarComponent = () => {
 
   const toggleDeliveryLocationModal = (value: boolean) => {
     setLocationModalVisible(value);
+  };
+
+  const toggleFilterModal = (value: boolean) => {
+    setFilterModalVisible(value);
   };
 
   return (
@@ -69,7 +76,11 @@ const TopBarComponent = () => {
           </div>
         </div>
         <div className="filter-section">
-          <button type="button" className="filter-button">
+          <button
+            type="button"
+            className="filter-button"
+            onClick={() => toggleFilterModal(true)}
+          >
             Filters
           </button>
           <button type="button" className="filter-button">
@@ -105,6 +116,11 @@ const TopBarComponent = () => {
         <DeliveryLocationComponent
           closeLocation={toggleDeliveryLocationModal}
         />
+      ) : null}
+
+      {/* Filter Modal */}
+      {isFilterVisible ? (
+        <FilterComponent closeFilter={toggleFilterModal} />
       ) : null}
     </div>
   );
