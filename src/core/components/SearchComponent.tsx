@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 type Props = {
   closeSearch: (value: boolean) => void;
@@ -6,23 +6,13 @@ type Props = {
 };
 
 const SearchComponent: React.FC<Props> = ({ closeSearch, openLocation }) => {
-  const [placeholder, setPlaceholder] = useState<boolean>(false);
-
   const closeSearchModal = (value: boolean) => {
     closeSearch(value);
   };
   const backdropClick = (e: any) => {
-    if (e?.target?.className === "search-modal") {
+    if (e?.target?.className === "modal") {
       closeSearch(false);
     }
-  };
-
-  const onInputBlur = (value: boolean) => {
-    setPlaceholder(value);
-  };
-
-  const onInputClick = (value: boolean) => {
-    setPlaceholder(value);
   };
 
   const openLocationModal = (value: boolean) => {
@@ -31,29 +21,23 @@ const SearchComponent: React.FC<Props> = ({ closeSearch, openLocation }) => {
   };
 
   return (
-    <div className="search-modal" onClick={(e) => backdropClick(e)}>
-      <div className="search-modal-content">
+    <div className="modal" onClick={(e) => backdropClick(e)}>
+      <div className="modal-search-content">
         <div
-          className="search-modal-header"
+          className="d-flex align-items-center mt-16"
           onClick={() => openLocationModal(true)}
         >
-          <span className="search-header-title">Valsad</span>
+          <span className="title-search">Valsad</span>
           <span className="icon-down-arrow-fill"></span>
           <button
-            className="icon-close-icon"
+            className="icon-close"
             onClick={() => closeSearchModal(false)}
           />
         </div>
-        <div className="search-bar-section">
+        <div className="d-flex search-bar-container">
           <span className="icon-search"></span>
-          <input
-            type="text"
-            className="search-input"
-            autoFocus
-            onClick={() => onInputClick(false)}
-            onBlur={() => onInputBlur(true)}
-          />
-          <span className={placeholder ? "search-label" : "search-label-top"}>
+          <input type="text" className="input-search" autoFocus />
+          <span className="label-search">
             Search for restaurant, cuisine or a dish
           </span>
         </div>

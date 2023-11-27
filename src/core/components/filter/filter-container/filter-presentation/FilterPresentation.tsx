@@ -1,10 +1,13 @@
 import React from "react";
+import SortDetail from "./SortDetail";
+import Cuisines from "./Cuisines";
+import Rating from "./Rating";
 
 type Props = {
   closeFilter: (value: boolean) => void;
 };
 
-const FilterComponent: React.FC<Props> = ({ closeFilter }) => {
+const FilterPresentation: React.FC<Props> = ({ closeFilter }) => {
   const closeFilterModal = (value: boolean) => {
     closeFilter(value);
   };
@@ -25,31 +28,23 @@ const FilterComponent: React.FC<Props> = ({ closeFilter }) => {
             onClick={() => closeFilterModal(false)}
           />
         </div>
+
         <div className="filter-content">
           <section className="filter-option">
-            <span className="sort">Sort By</span>
-            <span className="cuisines">Cuisines</span>
-            <span className="rating">Rating</span>
-            <span className="cost">Cost per person</span>
-            <span className="more">More filters</span>
+            {/* <div className="redborder"></div> */}
+            <button className="btn-filter bg-white">Sort By</button>
+            <button className="btn-filter">Cuisines</button>
+            <button className="btn-filter">Rating</button>
+            <button className="btn-filter">Cost per person</button>
+            <button className="btn-filter">More filters</button>
           </section>
           <section className="filter-option-detail">
-            <div className="sort-detail">
-              <div>
-                {/* <span>icon</span> */}
-                <label>Popularity</label>
-              </div>
-              <div>
-                {/* <span>icon</span> */}
-                <label>Rating: High to Low</label>
-              </div>
-              <div>
-                {/* <span>icon</span> */}
-                <label>Delivery time</label>
-              </div>
-            </div>
+            {/* <SortDetail></SortDetail> */}
+            <Cuisines></Cuisines>
+            {/* <Rating></Rating> */}
           </section>
         </div>
+
         <section className="filter-button-section">
           <button className="filter-button-section-clear">Clear all</button>
           <button className="filter-button-section-apply">Apply</button>
@@ -59,4 +54,4 @@ const FilterComponent: React.FC<Props> = ({ closeFilter }) => {
   );
 };
 
-export default FilterComponent;
+export default FilterPresentation;

@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import LoginComponent from "./LoginComponent";
 import SearchComponent from "./SearchComponent";
 import { getAccessToken, setAuthData } from "../services/auth.service";
-import SignupComponent from "./SignupComponent";
 import DeliveryLocationComponent from "./DeliveryLocationComponent";
 import FilterComponent from "./FilterComponent";
+import FilterContainer from "./filter/filter-container/FilterContainer";
 
 const TopBarComponent = () => {
   /** toggle Login modal */
@@ -63,19 +63,22 @@ const TopBarComponent = () => {
             />
           </div>
         </nav>
-        <div className="search-section">
+        <div className="d-flex align-items-center justify-content-between search-section">
           <div
-            className="search-location"
+            className="d-flex align-items-center"
             onClick={() => toggleDeliveryLocationModal(true)}
           >
             <span className="icon-geo-alt-fill"></span>
-            <h4 className="location-text">Valsad</h4>
+            <h4 className="text-location">Valsad</h4>
           </div>
-          <div className="search-bar" onClick={() => toggleSearchModal(true)}>
+          <div
+            className="d-flex search-bar"
+            onClick={() => toggleSearchModal(true)}
+          >
             <span className="icon-search"></span>
           </div>
         </div>
-        <div className="filter-section">
+        <div className="d-flex filter-section">
           <button
             type="button"
             className="filter-button"
@@ -119,9 +122,10 @@ const TopBarComponent = () => {
       ) : null}
 
       {/* Filter Modal */}
-      {isFilterVisible ? (
+      {/* {isFilterVisible ? (
         <FilterComponent closeFilter={toggleFilterModal} />
-      ) : null}
+      ) : null} */}
+      {isFilterVisible ? <FilterContainer /> : null}
     </div>
   );
 };

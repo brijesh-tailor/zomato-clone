@@ -1,47 +1,12 @@
-.location-modal {
-    display: flex; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    // overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(28, 28, 28);
-    opacity: 1;
-    transition: opacity 0.25s ease 0s;
-}
-
-.location-modal-content {
-    // background-color: #fefefe;
-    background-color: rgb(255, 255, 255);
-    margin: 50px 0px 0px 0px; /* 15% from the top and centered */
-    padding: 9px;
-    border: 1px solid #888;
-    width: 100%; /* Could be more or less, depending on screen size */
-    // height: 100%;
-    border-radius: 5px;
-    opacity: 1;
-    z-index: 1;
-    overflow: hidden;
-    @media (min-width: 481px) {
-        margin: 50px auto 300px;
-        max-width: 380px;
-    }
-}
-
 .location-modal-header {
-    display: flex;
-    align-items: center;
-    margin-top: 15px;
-    justify-content: space-between;
+    margin-top: 16px;
     width: 100%;
     @media (min-width: 481px) {
         margin-top: 0px;
     }
 }
 
-.location-header-title {
+.title-location {
     font-size: 20px;
     margin: 0px;
     font-weight: 500;
@@ -52,32 +17,28 @@
     }
 }
 
-.icon-close-icon {
+.icon-close {
     color: #1c1c1c;
     font-size: 25px;
     font-weight: bold;
     border: none;
 }
 
-.search-bar-section {
-    display: flex;
+.search-bar-container {
     position: relative;
-    margin-top: 25px;
+    margin-top: 24px;
 
-    .search-input {
+    .input-search {
         cursor: pointer;
         padding: 0px 10px 0px 40px;
         width: 100%;
-        height: 45px;
+        height: 44px;
         border-radius: 5px;
         font-size: 18px;
         color: rgb(28, 28, 28);
         background: rgb(255, 255, 255);
         border: 0.1rem solid rgb(207, 207, 207);
         outline: none;
-        // &:focus-visible {
-        //     border: 0.1rem solid rgb(207, 207, 207);
-        // }
     }
 
     .icon-search {
@@ -90,7 +51,7 @@
     }
 }
 
-.detect-location {
+.location-area {
     margin-top: 30px;
     background: rgb(255, 255, 255);
     box-shadow: rgb(232, 232, 232) 0px -0.5px 0px inset;
@@ -100,7 +61,7 @@
     color: rgb(239, 79, 95);
 }
 
-.location-placeholder-text {
+.text-location-placeholder {
     margin-left: 10px;
     color: rgb(239, 79, 95);
     font-size: 20px;
@@ -108,7 +69,7 @@
     text-align: left;
 }
 
-.gps-text {
+.text-gps {
     color: rgb(156, 156, 156);
     text-align: left;
     margin: 5px 0px 0px 32px;

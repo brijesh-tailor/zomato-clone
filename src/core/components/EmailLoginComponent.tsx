@@ -21,7 +21,7 @@ const EmailLoginComponent: React.FC<Props> = ({ closeEmailLogin }) => {
   };
 
   const backdropClick = (e: any) => {
-    if (e?.target?.className === "email-login-modal") {
+    if (e?.target?.className === "modal") {
       closeEmailLogin(false);
     }
   };
@@ -31,26 +31,26 @@ const EmailLoginComponent: React.FC<Props> = ({ closeEmailLogin }) => {
   //   };
 
   return (
-    <div className="email-login-modal" onClick={(e) => backdropClick(e)}>
-      <div className="email-login-modal-content">
-        <div className="email-login-modal-header">
-          <span className="email-login-header-title">Login</span>
+    <div className="modal" onClick={(e) => backdropClick(e)}>
+      <div className="modal-email-login-content">
+        <div className="d-flex align-items-center justify-content-between mt-16">
+          <span className="title-email-login">Login</span>
           <button
-            className="icon-close-icon"
+            className="icon-close"
             onClick={() => closeEmailLoginModal(false)}
           />
         </div>
-        <div className="email-envelop">
+        <div className="d-flex">
           <span className="icon-email-envelop"></span>
         </div>
         <form
-          className="email-login-form"
+          className="d-flex email-login-form-container"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
           <input
             type="text"
-            className="email-login-form-input"
+            className="input-email-login"
             placeholder="Email"
             id="email"
             {...register("email", {
@@ -61,19 +61,15 @@ const EmailLoginComponent: React.FC<Props> = ({ closeEmailLogin }) => {
             })}
           />
           <p className="text-error">{errors.email?.message}</p>
-          <button className="email-login-form-otp-button">
-            Send One Time Password
-          </button>
-          <div className="hr"></div>
+          <button className="btn-otp">Send One Time Password</button>
+          <div className="d-flex align-items-center mt-6 mb-12">
+            <div className="hr"></div>
+          </div>
         </form>
-
-        {/* <div className="email-login-horizontal-line">
-          <span className="email-login-hr"></span>
-        </div> */}
-        <p className="email-login-text">
+        <p className="text-email-login">
           Already have an account?&nbsp;
           <span
-            className="email-login-link"
+            className="link-email-login"
             onClick={() => closeEmailLoginModal(false)}
           >
             Login

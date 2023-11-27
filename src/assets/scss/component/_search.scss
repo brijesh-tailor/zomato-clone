@@ -1,84 +1,43 @@
-.search-modal {
-    display: flex; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    // overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(28, 28, 28);
-    opacity: 1;
-    transition: opacity 0.25s ease 0s;
-    .search-modal-content {
-        // background-color: #fefefe;
-        background-color: rgb(255, 255, 255);
-        margin: 50px 0px 0px 0px; /* 15% from the top and centered */
-        padding: 9px;
-        border: 1px solid #888;
-        width: 100%; /* Could be more or less, depending on screen size */
-        height: 100%;
+.title-search {
+    font-size: 20px;
+    margin-left: 140px;
+    font-weight: 500;
+    color: rgb(79, 79, 79);
+}
+
+.icon-down-arrow-fill {
+    color: rgb(255, 126, 139);
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+/* The Close Button */
+.icon-close {
+    display: block;
+    color: #1c1c1c;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    margin-left: 115px;
+}
+
+.search-bar-container {
+    position: relative;
+    margin-top: 30px;
+    .input-search {
+        cursor: pointer;
+        padding: 0px 10px 0px 40px;
+        width: 100%;
+        height: 45px;
         border-radius: 5px;
-        opacity: 1;
-        z-index: 1;
-        // overflow: hidden;
-
-        .search-modal-header {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-            .search-header-title {
-                font-size: 20px;
-                // line-height: 4rem;
-                // margin: 5px 8px;
-                margin-left: 140px;
-                font-weight: 500;
-                color: rgb(79, 79, 79);
-            }
-
-            .icon-down-arrow-fill {
-                color: rgb(255, 126, 139);
-                margin-left: 5px;
-                font-size: 20px;
-            }
-
-            /* The Close Button */
-            .icon-close-icon {
-                display: block;
-                color: #1c1c1c;
-                font-size: 25px;
-                font-weight: bold;
-                border: none;
-                margin-left: 115px;
-            }
-        }
-
-        .search-bar-section {
-            display: flex;
-            position: relative;
-            margin-top: 30px;
-            .search-input {
-                cursor: pointer;
-                padding: 0px 10px 0px 40px;
-                width: 100%;
-                height: 45px;
-                border-radius: 5px;
-                font-size: 18px;
-                // border: 1px solid rgb(207, 207, 207);
-                color: rgb(28, 28, 28);
-                background: rgb(255, 255, 255);
-                border: 0.1rem solid rgb(207, 207, 207);
-            }
-
-            .icon-search {
-                top: 15px;
-                left: 15px;
-                position: absolute;
-                font-size: 16px;
-                pointer-events: none;
-            }
-
-            .search-label-top {
+        font-size: 18px;
+        border: 1px solid rgb(207, 207, 207);
+        color: rgb(28, 28, 28);
+        background: rgb(255, 255, 255);
+        border: 0.1rem solid rgb(207, 207, 207);
+        &:focus {
+            outline-color: rgb(181, 181, 181);
+            ~ .label-search {
                 position: absolute;
                 top: -5px;
                 left: 10px;
@@ -87,26 +46,26 @@
                 color: rgb(181, 181, 181);
                 background: rgb(255, 255, 255);
                 transition: 0.2s ease 0s;
-                // overflow: hidden;
-                // text-overflow: ellipsis;
-            }
-
-            .search-label {
-                position: absolute;
-                top: 15px;
-                left: 44px;
-                font-size: 18px;
-                padding: 0px;
-                color: rgb(181, 181, 181);
-                background: rgb(255, 255, 255);
-                pointer-events: none;
             }
         }
+    }
 
-        @media (min-width: 481px) {
-            margin: 50px auto;
-            max-width: 500px;
-            max-height: 156px;
-        }
+    .icon-search {
+        top: 15px;
+        left: 15px;
+        position: absolute;
+        font-size: 16px;
+        pointer-events: none;
+    }
+
+    .label-search {
+        position: absolute;
+        top: 15px;
+        left: 44px;
+        font-size: 18px;
+        padding: 0px;
+        color: rgb(181, 181, 181);
+        background: rgb(255, 255, 255);
+        pointer-events: none;
     }
 }

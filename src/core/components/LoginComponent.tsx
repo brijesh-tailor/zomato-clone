@@ -45,48 +45,50 @@ const LoginComponent: React.FC<Props> = ({ closeLogin, openLoginModal }) => {
   };
 
   return (
-    <div>
-      <div id="myModal" className="modal" onClick={(e) => backdropClick(e)}>
+    <>
+      <div className="modal" onClick={(e) => backdropClick(e)}>
         {/* Modal Content */}
-        <div className="modal-content">
-          <div className="modal-header">
-            <h2 className="header-title">Login</h2>
+        <div className="modal-login-content">
+          <div className="d-flex align-items-center justify-content-between">
+            <h2 className="title-login">Login</h2>
             <button
-              className="icon-close-icon"
+              className="icon-close"
               onClick={() => closeLoginModal(false)}
             />
-            {/* <span className="close" onClick={() => closeLoginModal(false)}>
-          &times;
-        </span> */}
           </div>
-          <div className="form-section">
-            <div className="phone-field">
-              <select className="country-dropdown">
-                {countries?.map((data, key) => {
-                  return (
-                    <option className="country-option" key={key}>
-                      <span>{data?.country_name}</span>
-                      {/* <span>|</span>
-                    <span>+{data.isdCode}</span> */}
-                    </option>
-                  );
-                })}
-              </select>
-              <input type="text" placeholder="Phone" className="phone-number" />
+          <div className="login-form-container">
+            <form>
+              <div className="d-flex input-phone-container">
+                <select className="dropdown-country">
+                  {countries?.map((data, key) => {
+                    return (
+                      <option className="" key={key}>
+                        <span>{data?.country_name}</span>
+                      </option>
+                    );
+                  })}
+                </select>
+                <input
+                  type="text"
+                  placeholder="Phone"
+                  className="input-phone"
+                />
+              </div>
+              <button className="btn-otp">Send One Time Password</button>
+            </form>
+            <div className="d-flex align-items-center mt-6 mb-12">
+              <div className="hr"></div>
+              <span className="hr-text">or</span>
+              <div className="hr"></div>
             </div>
-            <button className="otp-button">Send One Time Password</button>
-            <div className="horizontal-line-text">
-              <hr className="hr" />
-              <span className="or">or</span>
-            </div>
-            <span
-              className="mail-button"
+            <button
+              className="btn-login d-flex justify-content-center align-items-center mb-28"
               onClick={() => toggleEmailLoginModal(true)}
             >
               <span className="icon-mail-fill"></span>
-              <span className="mail-text">Continue with Email</span>
-            </span>
-            <button className="google-button">
+              <span className="text">Continue with Email</span>
+            </button>
+            <button className="btn-login d-flex justify-content-center align-items-center mb-28">
               <span className="icon-google">
                 <span className="path1"></span>
                 <span className="path2"></span>
@@ -94,15 +96,13 @@ const LoginComponent: React.FC<Props> = ({ closeLogin, openLoginModal }) => {
                 <span className="path4"></span>
                 <span className="path5"></span>
               </span>
-              <span className="google-text">Continue with Google</span>
+              <span className="text">Continue with Google</span>
             </button>
-            <div className="horizontal-line">
-              <hr className="hr" />
-            </div>
-            <p className="sign-up-text">
+            <div className="hr mb-12"></div>
+            <p className="text-signup mt-12">
               New to Zomato?
               <span
-                className="create-account-link"
+                className="link-signup"
                 onClick={() => toggleSignupModal(true)}
               >
                 Create account
@@ -124,7 +124,7 @@ const LoginComponent: React.FC<Props> = ({ closeLogin, openLoginModal }) => {
       {isEmailLoginVisible ? (
         <EmailLoginComponent closeEmailLogin={toggleEmailLoginModal} />
       ) : null}
-    </div>
+    </>
   );
 };
 

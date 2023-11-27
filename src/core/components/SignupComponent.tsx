@@ -2,8 +2,6 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 /**********************************************************************/
 import { SignupForm } from "../models/common.model";
-import { useState } from "react";
-import { log } from "console";
 
 type Props = {
   closeSignup: (value: boolean) => void;
@@ -11,9 +9,6 @@ type Props = {
 };
 
 const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
-  const [namePlaceholder, setNamePlaceholder] = useState<boolean>(false);
-  const [emailPlaceholder, setEmailPlaceholder] = useState<boolean>(false);
-
   const form = useForm<SignupForm>();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
@@ -31,54 +26,24 @@ const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
   };
 
   const backdropClick = (e: any) => {
-    if (e?.target?.className === "signup-modal") {
+    if (e?.target?.className === "modal") {
       closeSignup(false);
     }
   };
 
-  const onNameInputBlur = (value: boolean) => {
-    control?._formValues?.username !== ""
-      ? setNamePlaceholder(true)
-      : setNamePlaceholder(value);
-  };
-
-  const onNameInputClick = (value: boolean) => {
-    setNamePlaceholder(value);
-  };
-
-  const onEmailInputBlur = (value: boolean) => {
-    control?._formValues?.email !== ""
-      ? setEmailPlaceholder(true)
-      : setEmailPlaceholder(value);
-  };
-
-  const onEmailInputClick = (value: boolean) => {
-    setEmailPlaceholder(value);
-  };
-
   return (
-    <div className="signup-modal" onClick={(e) => backdropClick(e)}>
-      <div className="signup-modal-content">
-        <div className="signup-modal-header">
-          <h2 className="signup-header-title">Signup</h2>
+    <div className="modal" onClick={(e) => backdropClick(e)}>
+      <div className="modal-signup-content">
+        <div className="d-flex align-items-center justify-content-between">
+          <h2 className="title-signup">Signup</h2>
           <button
-            className="icon-close-icon"
+            className="icon-close"
             onClick={() => closeSignupModal(false)}
           />
         </div>
-        <div className="signup-form">
+        <div className="signup-form-container">
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            <div className="form-control">
-              <label
-                htmlFor="username"
-                className={
-                  namePlaceholder
-                    ? "form-control-label-top"
-                    : "form-control-label"
-                }
-              >
-                Full Name
-              </label>
+            <div className="d-flex form-control">
               <input
                 type="text"
                 id="username"
@@ -89,22 +54,13 @@ const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
                     message: "Username is required",
                   },
                 })}
-                onClick={() => onNameInputClick(true)}
-                onBlur={() => onNameInputBlur(false)}
               />
+              <label htmlFor="username" className="form-control-label">
+                Full Name
+              </label>
               <p className="text-error">{errors.username?.message}</p>
             </div>
-            <div className="form-control">
-              <label
-                htmlFor="email"
-                className={
-                  emailPlaceholder
-                    ? "form-control-label-top"
-                    : "form-control-label"
-                }
-              >
-                Email
-              </label>
+            <div className="d-flex form-control">
               <input
                 className="form-control-input"
                 type="email"
@@ -121,12 +77,13 @@ const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
                     message: "Email is required",
                   },
                 })}
-                onClick={() => onEmailInputClick(true)}
-                onBlur={() => onEmailInputBlur(false)}
               />
+              <label htmlFor="email" className="form-control-label">
+                Email
+              </label>
               <p className="text-error">{errors.email?.message}</p>
             </div>
-            <div className="consent">
+            <div className="d-flex consent-signup">
               <input type="checkbox" className="checkbox" />
               <span className="links">
                 I agree to Zomato's&nbsp;
@@ -142,14 +99,14 @@ const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
                 </a>
               </span>
             </div>
-            <button className="create-account-button">Create Account</button>
+            <button className="btn-create-account">Create Account</button>
           </form>
-
-          <div className="horizontal-line-text">
-            <hr className="hr" />
-            <span className="or">or</span>
+          <div className="d-flex align-items-center mt-6 mb-12">
+            <div className="hr"></div>
+            <span className="hr-text">or</span>
+            <div className="hr"></div>
           </div>
-          <button className="google-button">
+          <button className="btn-signup d-flex justify-content-center align-items-center mb-28">
             <span className="icon-google">
               <span className="path1"></span>
               <span className="path2"></span>
@@ -157,17 +114,14 @@ const SignupComponent: React.FC<Props> = ({ closeSignup, openLogin }) => {
               <span className="path4"></span>
               <span className="path5"></span>
             </span>
-            <span className="google-text">Continue with Google</span>
+            <span className="text">Continue with Google</span>
           </button>
-          <div className="horizontal-line">
-            <hr className="hr" />
+          <div className="d-flex align-items-center mt-6 mb-12">
+            <div className="hr"></div>
           </div>
-          <p className="login-text">
+          <p className="text-login">
             Already have an account?
-            <span
-              className="login-account-link"
-              onClick={() => navigateToLogin(true)}
-            >
+            <span className="link-login" onClick={() => navigateToLogin(true)}>
               Login
             </span>
           </p>
